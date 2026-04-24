@@ -34,21 +34,6 @@ number of tables, approximate row counts, key columns and data types
 
  ### Question: How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
 ### <img width="1282" height="288" alt="image" src="https://github.com/user-attachments/assets/66fd2efd-1629-485b-a85e-b7a98b828a74" />
-### MySQL: 
-SELECT 
-    a.industry,
-    t.date,  
-    t.value AS turnover_rate,  
-    t.value - t_prev.value AS turnover_trend  
-FROM PUBLIC_DATA_FREE.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES t
-JOIN PUBLIC_DATA_FREE.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES a 
-    ON t.variable = a.variable
-LEFT JOIN PUBLIC_DATA_FREE.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES t_prev
-    ON t.variable = t_prev.variable
-    AND t_prev.date = DATEADD(month, -1, t.date)
-WHERE a.measure = 'Total separations'
-ORDER BY a.industry, t.date
-LIMIT 10000;
 
 ### Interpretation: 
 
