@@ -24,7 +24,8 @@ trivial, and why it is interesting or meaningful
 number of tables, approximate row counts, key columns and data types
 
 ## Snowsight Dashboard
-<img width="1230" height="480" alt="image" src="https://github.com/user-attachments/assets/ff93c687-14a3-4f5a-b08d-889e02c72302" />
+1. <img width="1282" height="288" alt="image" src="https://github.com/user-attachments/assets/66fd2efd-1629-485b-a85e-b7a98b828a74" />
+
 
 
 
