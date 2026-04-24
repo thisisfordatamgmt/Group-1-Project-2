@@ -24,7 +24,9 @@ trivial, and why it is interesting or meaningful
 number of tables, approximate row counts, key columns and data types
 
 ## Snowsight Dashboard
-1. <img width="1282" height="288" alt="image" src="https://github.com/user-attachments/assets/66fd2efd-1629-485b-a85e-b7a98b828a74" />
+Question 1 
+- Question: How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
+<img width="1282" height="288" alt="image" src="https://github.com/user-attachments/assets/66fd2efd-1629-485b-a85e-b7a98b828a74" />
 
 
 
