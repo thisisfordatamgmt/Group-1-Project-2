@@ -23,3 +23,9 @@ trivial, and why it is interesting or meaningful
 ## Description (going to be written better, but waiting till we have more done)
 number of tables, approximate row counts, key columns and data types
 
+## Snowsight Dashboard
+<img width="1230" height="480" alt="image" src="https://github.com/user-attachments/assets/ff93c687-14a3-4f5a-b08d-889e02c72302" />
+
+
+
+
