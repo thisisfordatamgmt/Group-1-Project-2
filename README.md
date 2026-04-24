@@ -15,7 +15,7 @@ Sp26_71552_Group 1
 
 # Dataset
 
-## description
+## Description
 Why we chose it (going to be written better, but waiting till we have more done)
 We chose US Bureau of Labor Statistics (BLS) which targets Consumer Price Index (CPI), Average Prices (AP), Job Openings, and Labor Turnover Survey (JOLTS), State and Metro Area Employment, Hours, & Earnings (SAE), and Local Area Unemployment Statistics (LAUS) reports. 
 
@@ -24,7 +24,7 @@ We chose US Bureau of Labor Statistics (BLS) which targets Consumer Price Index 
 ### Question 1
 - How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
 ### Question 2
-- 
+- How did unemployment rates vary across U.S. regions over time, and which regions experienced the most significant changes during major economic disruptions such as COVID-19?
 ### Question 3
 - 
 for each: which columns are relevant, what makes it non-
