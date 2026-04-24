@@ -17,13 +17,15 @@ Sp26_71552_Group 1
 
 ## description
 Why we chose it (going to be written better, but waiting till we have more done)
-We chose US Bureau of Labor Statistics (BLS) which targets Consumer Price Index (CPI), Average Prices (AP), Job Openings, and Labor Turnover Survey (JOLTS), State and Metro Area Employment, Hours, & Earnings (SAE), and Local Area Unemployment Statistics (LAUS) reports. How is unemployment rate in the different areas of the US changed overtime? This is interesting because you can see the spike in uncomployment during covid.  
+We chose US Bureau of Labor Statistics (BLS) which targets Consumer Price Index (CPI), Average Prices (AP), Job Openings, and Labor Turnover Survey (JOLTS), State and Metro Area Employment, Hours, & Earnings (SAE), and Local Area Unemployment Statistics (LAUS) reports. 
 
-## Two analytical questions — 
+## Two analytical questions 
 
 ### Question 1
-- 
+- How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
 ### Question 2
+- 
+### Question 3
 - 
 for each: which columns are relevant, what makes it non-
 trivial, and why it is interesting or meaningful
