@@ -39,7 +39,7 @@ number of tables, approximate row counts, key columns and data types
 
 ## Question 1 
 
- ### Question: How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
+### Question: How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
 ### <img width="1282" height="288" alt="image" src="https://github.com/user-attachments/assets/66fd2efd-1629-485b-a85e-b7a98b828a74" />
 
 ### Interpretation: 
@@ -50,12 +50,79 @@ The chart is a line graph showing average turnover rates over the years (2000-20
 
 This question is highly meaningful for economic purposes. It examines how economic disruptions affect turnover rates. For major disruptors like COVID, one would want to see the effect on the workforce and how many exited accordingly. This question is also meaningful for social reasons. It specifies which industries are most affected by major economic disruptions. Industries least affected will automatically be categorized as stable career fields, and vice versa. Society will always value in-demand, strong, or stable industries and career fields. Students and young professionals will likely be more interested in a stable industry that’s not affected by major disruptions. The younger demographic seems to prefer stability amid rapid societal change. This question and its answers will be very beneficial to them. The BLS Employment_Timeseries and BLS Employment_Attributes tables were used to create this query. The date and value columns were used from the  BLS Employment_Timeseries table, and the industry and measure columns were used from the BLS Employment_Attributes tables.
 
+## Question 2
+
+### Question: 
+How did unemployment rates vary across U.S. regions over time, and which regions experienced the most significant changes during major economic disruptions such as COVID-19?
+### <img width="1234" height="496" alt="image" src="https://github.com/user-attachments/assets/6135e4a9-4989-4660-ac3e-50e2a71d88c7" />
+
+
+### Interpretation
+
+The chart shows the average unemployment rate for each U.S. region from 2009 through 2025. All four mainland regions (Northeast, Midwest, South, West) followed a similar downward trend after the 2008 recession, converging around 3-4% by 2019 before spiking sharply to nearly 15% in April 2020 due to COVID-19 lockdowns. The Territory line (Puerto Rico) stays consistently higher than all mainland regions throughout the entire period, demonstrating persistent structural unemployment that exists independent of national economic cycles. The COVID spike is the most dramatic feature of the chart, but what's notable is how quickly all regions recovered to pre-pandemic levels by 2022, suggesting the pandemic shock, while severe, was shorter-lived than the slow recovery from the 2008 financial crisis.
+
+### Justification 
+
+This question is meaningful because unemployment is one of the most important indicators of economic health, and regional differences reveal how economic shocks affect different parts of the country unevenly. Rather than asking a simple lookup question (e.g., "what was the unemployment rate in 2020?"), this question requires aggregating state-level data into regional groupings, comparing trends across multiple regions, and analyzing how those regions responded to a major disruption like COVID-19. The answer has real social and economic implications: it shows which regions are more economically resilient, which are more vulnerable to shocks, and how recovery patterns differ geographically. This information is relevant for policymakers, businesses considering expansion, and workers evaluating job markets.
+
+### Data Manipulation 
+
+This query joins three tables to combine unemployment data with geographic information. The BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES table contains metadata describing each measure, the BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES table contains the actual unemployment values over time, and the GEOGRAPHY_INDEX table provides geographic identifiers like state names. The two BLS tables are joined on the variable column, and the time series is joined to the geography table on geo_id. The CASE statement is the key transformation — it groups individual states into the four U.S. Census regions (Northeast, Midwest, South, West) plus a Territory category for Puerto Rico, allowing regional-level analysis instead of state-by-state comparison. The WHERE clause filters the data down to only seasonally adjusted monthly unemployment rates at the state level (excluding national or county-level records), and the results are ordered by date with a 10,000-row limit to keep the dataset manageable for the dashboard. 
+
+## Question 3
+
+### Question: 
+
+### <img width="1256" height="264" alt="image" src="https://github.com/user-attachments/assets/fb114403-980c-4fcc-9c53-de24e8ea68b8" />
+
+### Interpretation
+na
+
+### Justification 
+na
+
+### Data Manipulation 
+
+na
+
 # Component 2: Streamlit in Snowflake Ap
 
 ## Question 1 
-### Question: How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
+
+### Question: 
+How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
+
 ### <img width="1240" height="474" alt="image" src="https://github.com/user-attachments/assets/d2a69a2f-650f-4e21-bf2e-7f44fd9620c0" />
+
 ### Analytical Value: 
+
 I have added two interactive elements to my Streamlit application: a multi-select feature for different industry types and a date range selector to view specific time periods. The reader/viewer can use these features to better understand how specific industries are affected using the multi select feature. Furthermore, he/she can use the data range selector to examine how specific periods of time affected the turnover rate of that industry, or to view all industries’ turnover rates at once to discern noticeable trends. These elements add analytical value to this application, making it more valuable to industry researchers and early-career professionals who are deciding which career fields to pursue. Job stability is a major factor in deciding a future career. I have used AI to help me through this process, specifically ChatGPT. I asked it to make my Streamlit application more analytically valuable, and I pasted the instructions for the component 3 section of the project instructions to better guide ChatGPT. ChatGPT returned a Python script that wouldn't run, so I decided to specify exactly which features I wanted added (multi-select and date range selector), and ChatGPT successfully generated a functioning Python script that did just that.
 
+## Question 2 
 
+### Question: 
+How did unemployment rates vary across U.S. regions over time, and which regions experienced the most significant changes during major economic disruptions such as COVID-19?
+
+### <img width="1294" height="636" alt="image" src="https://github.com/user-attachments/assets/9bc24e77-3d63-405a-8785-ee2c06ea1418" />
+
+### Analytical Value: (need to check if this is right)
+We used ChatGPT to enhance our original Streamlit app with the prompt: "Add analytical value to this streamlit app to make it better than it was before." The improvements transformed the app from a static data viewer into an interactive analysis tool. The original version simply displayed a line chart of unemployment rates over time, which only answered the question "what are the unemployment rates?" The improved version answers much more useful analytical questions: where is unemployment worst, where is it improving, and which regions are most economically unstable. Specifically, the multi-select region filter lets users isolate and compare specific regions for hypothesis testing (e.g., comparing only the South vs. the West). The 3-month moving average toggle smooths out short-term noise so users can see true macro trends like post-recession recovery rather than monthly fluctuations. The KPI cards (Highest Region, Lowest Region, Regional Gap) deliver instant answers without requiring users to visually estimate values from the chart. The Month-over-Month change bar chart adds directional insight, showing which regions are accelerating or slowing — a leading indicator rather than a static snapshot. Finally, the Volatility (standard deviation) chart introduces a risk dimension by highlighting which regions are economically unstable, which is useful for policy or workforce planning decisions. We accepted ChatGPT's suggestions as written because they each added a distinct analytical layer (filtering, smoothing, KPIs, momentum, volatility) without changing the underlying SQL or core visualization. 
+
+### AI Prompt
+- “Add analytical value to this streamlit app to make it better than it was before”
+
+## Question 3 
+
+### Question: 
+
+### image <img width="1266" height="458" alt="image" src="https://github.com/user-attachments/assets/1514e5b7-7713-4bb9-bc5c-f1a86eb0a229" />
+
+
+### data manipulation need to figoure  out where to put this
+This query utilizes the LAG() function to get a year over year inflation rate over time. This utilizes the standard formula (current CPI value - previous CPI value) / previous CPI value. In this query specifically, t.value holds the current CPI value, and LAG(t.value,12) OVER (ORDER BY t.date) gets the previous CPI value for 12 periods prior (Since the data is recorded monthly, this gets the previous years value for CPI in the same month).
+
+### Analytical Value and how we used AI:
+We used ChatGPT with the same prompt as Query 1: "Add analytical value to this streamlit app to make it better than it was before." The original app showed a single line chart of year-over-year gasoline inflation, which displayed the data but offered no way to interpret or interact with it. The improved version adds several analytical layers that make the dashboard genuinely useful for understanding inflation dynamics. Adding Month-over-Month inflation alongside Year-over-Year gives users both short-term and long-term views — YoY shows the macro inflation trend, while MoM captures recent momentum that YoY can mask. The adjustable rolling average smoothing window (1-12 months) lets users control how much short-term volatility to filter out, which is critical for gasoline data because gas prices are notoriously noisy month-to-month. The date range selector allows users to focus on specific economic periods (e.g., the 2008 oil price spike, the 2020 COVID drop, or the 2022 post-pandemic surge) rather than viewing the entire 30-year history at once. The KPI metrics at the top (Latest YoY, Latest MoM, Trend direction) deliver the current state of inflation at a glance instead of forcing users to read the right edge of the chart. The conditional Key Insight box automatically interprets the latest value — flagging elevated inflation above 5%, declining prices, or moderate ranges — turning raw numbers into actionable interpretation. Together these features shift the app from "here is a chart of gasoline inflation" to "here is a tool for analyzing gasoline inflation across any time period at any level of smoothing." We kept all of ChatGPT's suggested improvements because they aligned with the project's goal of analytically meaningful interactivity, though we noted that the recession-shading feature was added as a placeholder rather than fully implemented. 
+
+### AI Prompt
+- “Add analytical value to this streamlit app to make it better than it was before”
