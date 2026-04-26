@@ -66,6 +66,24 @@ The chart shows the average unemployment rate for each U.S. region from 2009 thr
 This question is meaningful because unemployment is one of the most important indicators of economic health, and regional differences reveal how economic shocks affect different parts of the country unevenly. Rather than asking a simple lookup question (e.g., "what was the unemployment rate in 2020?"), this question requires aggregating state-level data into regional groupings, comparing trends across multiple regions, and analyzing how those regions responded to a major disruption like COVID-19. The answer has real social and economic implications: it shows which regions are more economically resilient, which are more vulnerable to shocks, and how recovery patterns differ geographically. This information is relevant for policymakers, businesses considering expansion, and workers evaluating job markets.
 
 ### Data Manipulation 
+#### Query:
+```
+SELECT ts.value as "Unemployment Rate", ts.date, 
+CASE
+    WHEN geo_name IN ('Connecticut','Maine','Massachusetts','New Hampshire','Rhode Island','Vermont','New Jersey','New York','Pennsylvania') THEN 'Northeast'
+    WHEN geo_name IN ('Illinois','Indiana','Michigan','Ohio','Wisconsin','Iowa','Kansas','Minnesota','Missouri','Nebraska','North Dakota','South Dakota') THEN 'Midwest'
+    WHEN geo_name IN ('Delaware','Florida','Georgia','Maryland','North Carolina','South Carolina','Virginia','District of Columbia','West Virginia','Alabama','Kentucky','Mississippi','Tennessee','Arkansas','Louisiana','Oklahoma','Texas') THEN 'South'
+    WHEN geo_name IN ('Arizona','Colorado','Idaho','Montana','Nevada','New Mexico','Utah','Wyoming','Alaska','California','Hawaii','Oregon','Washington') THEN 'West'
+    WHEN geo_name = 'Puerto Rico' THEN 'Territory'
+  END AS region
+FROM BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES as att
+JOIN BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES as ts ON att.variable = ts.variable
+JOIN GEOGRAPHY_INDEX as gi ON ts.geo_id = gi.geo_id 
+WHERE att.measure = 'Unemployment Rate' 
+AND att.unit = 'Percent'  
+AND att.variable_name = 'Local Area Unemployment: Unemployment Rate, Seasonally adjusted, Monthly' 
+AND gi.level = 'State' ORDER BY ts.date desc LIMIT 10000;
+```
 
 This query joins three tables to combine unemployment data with geographic information. The BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES table contains metadata describing each measure, the BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES table contains the actual unemployment values over time, and the GEOGRAPHY_INDEX table provides geographic identifiers like state names. The two BLS tables are joined on the variable column, and the time series is joined to the geography table on geo_id. The CASE statement is the key transformation — it groups individual states into the four U.S. Census regions (Northeast, Midwest, South, West) plus a Territory category for Puerto Rico, allowing regional-level analysis instead of state-by-state comparison. The WHERE clause filters the data down to only seasonally adjusted monthly unemployment rates at the state level (excluding national or county-level records), and the results are ordered by date with a 10,000-row limit to keep the dataset manageable for the dashboard. 
 
@@ -83,7 +101,22 @@ na
 
 ### Data Manipulation 
 
-na
+#### Query:
+```
+SELECT t.date,
+(t.value - LAG(t.value,12) OVER (ORDER BY t.date)) 
+        / LAG(t.value,12) OVER (ORDER BY t.date) AS inflation_rate
+FROM BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES a
+JOIN BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES t ON t.variable = a.variable
+JOIN GEOGRAPHY_INDEX gi ON t.geo_id = gi.geo_id
+WHERE a.variable_name = 'CPI: Gasoline, unleaded midgrade, Seasonally adjusted, Monthly, 1993-12 Index Date'
+AND gi.geo_name='United States'
+ORDER BY date desc
+LIMIT 1000;
+```
+
+This query utilizes the LAG() function to get a year over year inflation rate over time. This utilizes the standard formula (current CPI value - previous CPI value) / previous CPI value. In this query specifically, t.value holds the current CPI value, and LAG(t.value,12) OVER (ORDER BY t.date) gets the previous CPI value for 12 periods prior (Since the data is recorded monthly, this gets the previous years value for CPI in the same month). 
+
 
 # Component 2: Streamlit in Snowflake Ap
 
@@ -117,9 +150,6 @@ We used ChatGPT to enhance our original Streamlit app with the prompt: "Add anal
 
 ### image <img width="1266" height="458" alt="image" src="https://github.com/user-attachments/assets/1514e5b7-7713-4bb9-bc5c-f1a86eb0a229" />
 
-
-### data manipulation need to figoure  out where to put this
-This query utilizes the LAG() function to get a year over year inflation rate over time. This utilizes the standard formula (current CPI value - previous CPI value) / previous CPI value. In this query specifically, t.value holds the current CPI value, and LAG(t.value,12) OVER (ORDER BY t.date) gets the previous CPI value for 12 periods prior (Since the data is recorded monthly, this gets the previous years value for CPI in the same month).
 
 ### Analytical Value and how we used AI:
 We used ChatGPT with the same prompt as Query 1: "Add analytical value to this streamlit app to make it better than it was before." The original app showed a single line chart of year-over-year gasoline inflation, which displayed the data but offered no way to interpret or interact with it. The improved version adds several analytical layers that make the dashboard genuinely useful for understanding inflation dynamics. Adding Month-over-Month inflation alongside Year-over-Year gives users both short-term and long-term views — YoY shows the macro inflation trend, while MoM captures recent momentum that YoY can mask. The adjustable rolling average smoothing window (1-12 months) lets users control how much short-term volatility to filter out, which is critical for gasoline data because gas prices are notoriously noisy month-to-month. The date range selector allows users to focus on specific economic periods (e.g., the 2008 oil price spike, the 2020 COVID drop, or the 2022 post-pandemic surge) rather than viewing the entire 30-year history at once. The KPI metrics at the top (Latest YoY, Latest MoM, Trend direction) deliver the current state of inflation at a glance instead of forcing users to read the right edge of the chart. The conditional Key Insight box automatically interprets the latest value — flagging elevated inflation above 5%, declining prices, or moderate ranges — turning raw numbers into actionable interpretation. Together these features shift the app from "here is a chart of gasoline inflation" to "here is a tool for analyzing gasoline inflation across any time period at any level of smoothing." We kept all of ChatGPT's suggested improvements because they aligned with the project's goal of analytically meaningful interactivity, though we noted that the recession-shading feature was added as a placeholder rather than fully implemented. 
