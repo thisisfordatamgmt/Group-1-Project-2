@@ -40,10 +40,11 @@ number of tables, approximate row counts, key columns and data types
 
 ## Question 1 
 
-### Question: How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
+### Question: 
+How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
 ### <img width="1282" height="288" alt="image" src="https://github.com/user-attachments/assets/66fd2efd-1629-485b-a85e-b7a98b828a74" />
 
-### Interpretation: 
+### Interpretation 
 
 The chart is a line graph showing average turnover rates over the years (2000-2025 in the picture) for each industry. The x-axis displays the years, and the y-axis displays the average turnover rate expressed in a decimal format. The data were sorted by industry so that the reader/viewer can determine which industries were most affected by major economic disruptions. The COVID-19 pandemic occurred around 2020, and we can see a surge in average turnover rates across almost every industry. The Federal industry was honestly “unaffected” by the pandemic, as there was little to no change in its average turnover rate. However, the Financial industry remained unaffected, with no surge/shift, showing a straight line in its average turnover rate. On the other hand, industries like the Education and health services, along with Accommodation and food services, were both highly sensitive to the pandemic and reacted very significantly. Both industries saw a massive shift in their turnover rate, which can possibly be due to the fact that both industries required a more “personal” or “in-person” responsibility/factor and were not able to retain their workers because of the difficulty that would come from transforming  many of these jobs to a more virtual situation. The Accommodation and Food industry seemed to have the highest turnover rate overall, as it is seen as more of an industry for part-time/temporary/seasonal workers who are only working to earn a temporary wage, such as high school seniors working in fast food restaurants to help pay for college. The most stable industries were those that remained unaffected by disruptors and showed a low overall turnover rate throughout the graph. These industries were the Federal, Financial/Insurance, and Educational Services industries. These industries were probably able to shift to a virtual setting, given that they consist mainly of “behind-the-desk” jobs. This also shows why many students at Terry are Finance majors or are looking to go into/switch to Finance, since Finance is a very stable and safe career.
 
@@ -149,9 +150,17 @@ How did the turnover rates react to major economic disruptions (i.e COVID), and 
 
 ### <img width="1240" height="474" alt="image" src="https://github.com/user-attachments/assets/d2a69a2f-650f-4e21-bf2e-7f44fd9620c0" />
 
-### Analytical Value: 
+### Analytical Value and How AI Was Used: 
 
 I have added two interactive elements to my Streamlit application: a multi-select feature for different industry types and a date range selector to view specific time periods. The reader/viewer can use these features to better understand how specific industries are affected using the multi select feature. Furthermore, he/she can use the data range selector to examine how specific periods of time affected the turnover rate of that industry, or to view all industries’ turnover rates at once to discern noticeable trends. These elements add analytical value to this application, making it more valuable to industry researchers and early-career professionals who are deciding which career fields to pursue. Job stability is a major factor in deciding a future career. I have used AI to help me through this process, specifically ChatGPT. I asked it to make my Streamlit application more analytically valuable, and I pasted the instructions for the component 3 section of the project instructions to better guide ChatGPT. ChatGPT returned a Python script that wouldn't run, so I decided to specify exactly which features I wanted added (multi-select and date range selector), and ChatGPT successfully generated a functioning Python script that did just that.
+
+### AI Prompt
+- “Add analytical value to this streamlit app to make it better than it was before. Use the instructions provided for this project: Requirements:
+• Reproduce the visualizations from Phase 2
+• Include at least one interactive element (dropdown filter, date range selector, multi-select,
+etc.) that changes what data is displayed
+• The interaction must be analytically meaningful — let users explore a different cut of the
+data, not just change appearance"
 
 ## Question 2 
 
@@ -160,7 +169,8 @@ How did unemployment rates vary across U.S. regions over time, and which regions
 
 ### <img width="1294" height="636" alt="image" src="https://github.com/user-attachments/assets/9bc24e77-3d63-405a-8785-ee2c06ea1418" />
 
-### Analytical Value: (need to check if this is right)
+### Analytical Value and How AI Was Used:
+
 We used ChatGPT to enhance our original Streamlit app with the prompt: "Add analytical value to this streamlit app to make it better than it was before." The improvements transformed the app from a static data viewer into an interactive analysis tool. The original version simply displayed a line chart of unemployment rates over time, which only answered the question "what are the unemployment rates?" The improved version answers much more useful analytical questions: where is unemployment worst, where is it improving, and which regions are most economically unstable. Specifically, the multi-select region filter lets users isolate and compare specific regions for hypothesis testing (e.g., comparing only the South vs. the West). The 3-month moving average toggle smooths out short-term noise so users can see true macro trends like post-recession recovery rather than monthly fluctuations. The KPI cards (Highest Region, Lowest Region, Regional Gap) deliver instant answers without requiring users to visually estimate values from the chart. The Month-over-Month change bar chart adds directional insight, showing which regions are accelerating or slowing — a leading indicator rather than a static snapshot. Finally, the Volatility (standard deviation) chart introduces a risk dimension by highlighting which regions are economically unstable, which is useful for policy or workforce planning decisions. We accepted ChatGPT's suggestions as written because they each added a distinct analytical layer (filtering, smoothing, KPIs, momentum, volatility) without changing the underlying SQL or core visualization. 
 
 ### AI Prompt
