@@ -135,10 +135,14 @@ This query joins three tables to combine unemployment data with geographic infor
 ### <img width="1256" height="264" alt="image" src="https://github.com/user-attachments/assets/fb114403-980c-4fcc-9c53-de24e8ea68b8" />
 
 ### Interpretation
-na
+The trend chart depicts the annual inflation of midgrade unleaded gasoline in the USA from the middle of the 1990s to late 2025. Observing the horizontal x-axis, which denotes time, and the vertical y-axis, indicating the percentage increase of the Consumer Price Index, one may notice how turbulent fuel prices are. However, it is not merely a straight line. In contrast, the graph contains significant waves and dips, reflecting the evolution of the world's economy over the past thirty years.
+
+The most remarkable features of the diagram correlate with worldwide events. One can observe a tremendous growth of fuel prices in 2008, after which follows a rapid decline, also known as a cliff-dive, during the Great Recession due to a severe lack of demand in the global market. Likewise, there is a sharp fall representing the plunge in oil rates during the 2014 crisis. Finally, the "V-shaped" volatility of the last years relates to the current state of the world amid the coronavirus pandemic. Indeed, the chart records a rapid decrease in prices during the lockdown of 2020, followed by an immense inflationary wave in 2021 and 2022. Nevertheless, as of late 2025, the graph illustrates a gradual decline towards
 
 ### Justification 
-na
+The choice of the topic is justified by the fact that the cost of gasoline is probably one of the most "frequent" macroeconomic factors. The peculiarity of the following data analysis lies in the fact that it is not only about gasoline prices but the use of the LAG() window function to calculate the inflation rate compared to the same month in the previous year. Thus, the calculation shows the real movement and momentum in relation to prices rather than the fixed value seen at the gas station.
+
+There are several reasons why the research in this area is fascinating for both a social and an economist. From the point of view of economics, there is an opportunity to draw a comparison between the various crisis periods: the demand shock of 2008 and the problems with supply chains nowadays in the post-COVID world. In terms of sociology, this macroeconomic factor represents a serious obstacle for working people and low-income families, who are unable to replace their cars with public transportation.
 
 ### Data Manipulation 
 
