@@ -35,16 +35,14 @@ trivial, and why it is interesting or meaningful
 ## Description 
 This dataset is available through Snowflake Marketplace under the listing name Bureau of Labor Statistics(BLS). This dataset contains labor market and economic data across the United States. It includes unemployment statistics, employment trends, and consumer price(CPI) measurements. 
 
-For this project, we used five primary tables:
-
-- BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES (2091 rows),
-- BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES,(22,789,269 rows),
-- BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES(2290 rows),
-- BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES(1,429,988 rows), 
-- GEOGRAPHY_INDEX(573,269 rows)
+- BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES (2091 rows) 
+- BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES,(22,789,269 rows) 
+- BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES(2290 rows)
+- BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES(1,429,988 rows)  
+- GEOGRAPHY_INDEX(573,269 rows).
   
-The employment attributes table contains 9 columns employment variables are: 
-
+ The employment and price attributes table contains 9 columns and stores metadata about employment and price variables such as: 
+ 
 - VARIABLE(VARCHAR), 
 - VARIABLE_NAME(VARCHAR), 
 - SEASONALLY_ADJUSTED(BOOLEAN), 
@@ -53,9 +51,10 @@ The employment attributes table contains 9 columns employment variables are:
 - REPORT(VARCHAR), 
 - MEASURE(VARCHAR), 
 - INDUSTRY(VARCHAR),
-- ESTABLISHMENT_SIZE(VARCHAR)
+- ESTABLISHMENT_SIZE(VARCHAR).
   
-The Employment Time series table contains 5 columns and stores the actual time-based economic values, including GEO_ID(VARCHAR), VARIBALE(VARCHAR), VARIBALE_NAME(VARCHAR), VALUE(FLOAT), and DATE(DATE). The geography index table contains 8 columns and provides geographic data such as GEO_ID, GEO_NAME, LEVEL, and other location codes. Which allows employment and price data to be mapped to states and regions. The tables are connected primarily through the VARIABLE and GEO_ID columns, allowing joins between metadata, time series values, and geography information. The huge volume of historical data combines with its geographic and economic depth. Making this dataset highly suitable for non-trivial analysis involving time-series tends, and regional comparisons.
+The Employment Time series table contains 5 columns and stores the actual time-based economic values, including GEO_ID(VARCHAR), VARIBALE(VARCHAR), VARIBALE_NAME(VARCHAR), VALUE(FLOT), and DATE(DATE). The Price Attributes table contains 8 columns and stores metadata for CPI. Which describe the type of product and price measurements being tracked. The Price Time series table contains 5 columns and stores historical CPI values, including GEO_ID, VARIABLE, VARIABLE_NAME, VALUE, and DATE. The geography index table contains 8 columns and provides geographic data such as GEO_ID, GEO_NAME, LEVEL, and other location codes. Which allows employment and price data to be mapped to states and regions. The tables are connected primarily through the VARIABLE and GEO_ID columns, allowing joins between metadata, time series values, and geography information. The huge volume of historical data combines with its geographic and economic depth. Making this dataset highly suitable for non-trivial analysis involving time-series tends, regional comparisons. 
+
 
 # Component 1: Snowsight Dashboard
 
