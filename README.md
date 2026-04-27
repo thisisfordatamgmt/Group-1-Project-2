@@ -51,6 +51,27 @@ The chart is a line graph showing average turnover rates over the years (2000-20
 
 This question is highly meaningful for economic purposes. It examines how economic disruptions affect turnover rates. For major disruptors like COVID, one would want to see the effect on the workforce and how many exited accordingly. This question is also meaningful for social reasons. It specifies which industries are most affected by major economic disruptions. Industries least affected will automatically be categorized as stable career fields, and vice versa. Society will always value in-demand, strong, or stable industries and career fields. Students and young professionals will likely be more interested in a stable industry that’s not affected by major disruptions. The younger demographic seems to prefer stability amid rapid societal change. This question and its answers will be very beneficial to them. The BLS Employment_Timeseries and BLS Employment_Attributes tables were used to create this query. The date and value columns were used from the  BLS Employment_Timeseries table, and the industry and measure columns were used from the BLS Employment_Attributes tables.
 
+### Data Manipulation 
+#### Query:
+```
+SELECT 
+    a.industry,
+    t.date,  
+    t.value AS turnover_rate,  
+    t.value - t_prev.value AS turnover_trend  
+FROM PUBLIC_DATA_FREE.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES t
+JOIN PUBLIC_DATA_FREE.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES a 
+    ON t.variable = a.variable
+LEFT JOIN PUBLIC_DATA_FREE.BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES t_prev
+    ON t.variable = t_prev.variable
+    AND t_prev.date = DATEADD(month, -1, t.date)
+WHERE a.measure = 'Total separations'
+ORDER BY a.industry, t.date
+LIMIT 10000;
+```
+
+This query performs key data manipulations to analyze turnover trends. The query joins the BLS Employment_Timeseries table with the BLS Employment_Attributes table to match industry labels to each record (JOIN ... ON t.variable = a.variable), allowing the data to be interpreted by industry. It filters the data to include only total separations (WHERE a.measure = 'Total separations'), so the analysis focuses specifically on employee turnover, and so that the turnover rate can be calculated. A self-join is used to bring in the previous month’s value for each variable (LEFT JOIN ... ON t.variable = t_prev.variable AND t_prev.date = DATEADD(month, -1, t.date)), which enables the calculation of a new field, turnover_trend, defined as t.value - t_prev.value to measure month-over-month changes. Finally, the results are sorted by industry and date for readability and limited to 10,000 rows to maintain performance.
+
 ## Question 2
 
 ### Question: 
