@@ -39,7 +39,7 @@ This dataset is available through Snowflake Marketplace under the listing name B
 - BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES(2290 rows),
 - BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES(1,429,988 rows), 
 - GEOGRAPHY_INDEX(573,269 rows)
- The employment attributes table contains 9 columns and stores metadata about employment variables such as: 
+The employment attributes table contains 9 columns and stores metadata about employment variables such as: 
 - VARIABLE(VARCHAR), 
 - VARIABLE_NAME(VARCHAR), 
 - SEASONALLY_ADJUSTED(BOOLEAN), 
