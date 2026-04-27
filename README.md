@@ -35,6 +35,8 @@ trivial, and why it is interesting or meaningful
 ## Description 
 This dataset is available through Snowflake Marketplace under the listing name Bureau of Labor Statistics(BLS). This dataset contains labor market and economic data across the United States. It includes unemployment statistics, employment trends, and consumer price(CPI) measurements. 
 
+For this project, we used five primary tables: 
+
 - BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_ATTRIBUTES (2091 rows) 
 - BUREAU_OF_LABOR_STATISTICS_EMPLOYMENT_TIMESERIES,(22,789,269 rows) 
 - BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES(2290 rows)
