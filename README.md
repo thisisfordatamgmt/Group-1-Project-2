@@ -43,7 +43,7 @@ For this project, we used five primary tables:
 - BUREAU_OF_LABOR_STATISTICS_PRICE_TIMESERIES(1,429,988 rows), 
 - GEOGRAPHY_INDEX(573,269 rows)
   
-The employment attributes table contains 9 columns and stores metadata about employment variables such as:
+The employment attributes table contains 9 columns employment variables are: 
 
 - VARIABLE(VARCHAR), 
 - VARIABLE_NAME(VARCHAR), 
