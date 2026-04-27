@@ -26,7 +26,7 @@ We chose US Bureau of Labor Statistics (BLS) which targets Consumer Price Index 
 ### Question 2
 - How did unemployment rates vary across U.S. regions over time, and which regions experienced the most significant changes during major economic disruptions such as COVID-19?
 ### Question 3
-- (draft) How did different economic and social events such as the 2008 financial crisis, 2014 oil price crash and the COVID-19 pandemic impact the inflation rate of gasoline in the US?
+- How did different economic and social events such as the 2008 financial crisis, 2014 oil price crash and the COVID-19 pandemic impact the inflation rate of gasoline in the US?
 
 for each: which columns are relevant, what makes it non-
 trivial, and why it is interesting or meaningful
@@ -147,7 +147,7 @@ We used ChatGPT to enhance our original Streamlit app with the prompt: "Add anal
 
 ## Question 3 
 
-### Question: (draft) How did different economic and social events such as the 2008 financial crisis, 2014 oil price crash and the COVID-19 pandemic impact the inflation rate of gasoline in the US?
+### Question: How did different economic and social events such as the 2008 financial crisis, 2014 oil price crash and the COVID-19 pandemic impact the inflation rate of gasoline in the US?
 
 ### image <img width="1266" height="458" alt="image" src="https://github.com/user-attachments/assets/1514e5b7-7713-4bb9-bc5c-f1a86eb0a229" />
 
