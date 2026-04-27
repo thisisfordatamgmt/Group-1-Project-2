@@ -55,7 +55,7 @@ The employment attributes table contains 9 columns and stores metadata about emp
 - INDUSTRY(VARCHAR),
 - ESTABLISHMENT_SIZE(VARCHAR)
   
-The Employment Time series table contains 5 columns and stores the actual time-based economic values, including GEO_ID(VARCHAR), VARIBALE(VARCHAR), VARIBALE_NAME(VARCHAR), VALUE(FLOAT), and DATE(DATE). The geography index table contains 8 columns and provides geographic data such as GEO_ID, GEO_NAME, LEVEL, and other location codes. Which allows employment and price data to be mapped to states and regions. The tables are connected primarily through the VARIABLE and GEO_ID columns, allowing joins between metadata, time series values, and geography information. The huge volume of historical data combines with its geographic and economic depth. Making this dataset highly suitable for non-trivial analysis involving time-series tends, regional comparisons.
+The Employment Time series table contains 5 columns and stores the actual time-based economic values, including GEO_ID(VARCHAR), VARIBALE(VARCHAR), VARIBALE_NAME(VARCHAR), VALUE(FLOAT), and DATE(DATE). The geography index table contains 8 columns and provides geographic data such as GEO_ID, GEO_NAME, LEVEL, and other location codes. Which allows employment and price data to be mapped to states and regions. The tables are connected primarily through the VARIABLE and GEO_ID columns, allowing joins between metadata, time series values, and geography information. The huge volume of historical data combines with its geographic and economic depth. Making this dataset highly suitable for non-trivial analysis involving time-series tends, and regional comparisons.
 
 # Component 1: Snowsight Dashboard
 
