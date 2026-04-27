@@ -21,7 +21,7 @@ We chose US Bureau of Labor Statistics (BLS) which targets Consumer Price Index 
 
 ## Two analytical questions 
 
-### Question 1
+### Question 1 - Honors Section (Sai Shankar Sadhu)
 - How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
 ### Question 2
 - How did unemployment rates vary across U.S. regions over time, and which regions experienced the most significant changes during major economic disruptions such as COVID-19?
@@ -38,7 +38,7 @@ number of tables, approximate row counts, key columns and data types
 
 # Component 1: Snowsight Dashboard
 
-## Question 1 
+## Question 1 - Honors Section (Sai Shankar Sadhu)
 
 ### Question: 
 How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
@@ -143,7 +143,7 @@ This query joins the ```BUREAU_OF_LABOR_STATISTICS_PRICE_ATTRIBUTES```, ```BUREA
 
 # Component 2: Streamlit in Snowflake Ap
 
-## Question 1 
+## Question 1 - Honors Section (Sai Shankar Sadhu)
 
 ### Question: 
 How did the turnover rates react to major economic disruptions (i.e COVID), and which industries were most affected?
