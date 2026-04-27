@@ -33,7 +33,7 @@ trivial, and why it is interesting or meaningful
 
 
 ## Description 
-This dataset is available through Snowflake Marketplace under the listing name Bureau of Labor Statistics(BLS). This dataset contains labor market and economic data across the United States. It includes unemployment statistics, employment trends, and consumer price(CPI) measurements. 
+This dataset is available through Snowflake Marketplace under the listing name Bureau of Labor Statistics(BLS). It dataset contains labor market and economic data across the United States. It includes unemployment statistics, employment trends, and consumer price(CPI) measurements. 
 
 For this project, we used five primary tables: 
 
