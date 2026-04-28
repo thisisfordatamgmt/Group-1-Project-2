@@ -28,9 +28,6 @@ We chose the Bureau of Labor Statistics(BLS) dataset because it provided useful 
 ### Question 3
 - How did different economic and social events such as the 2008 financial crisis, 2014 oil price crash and the COVID-19 pandemic impact the inflation rate of gasoline in the US?
 
-for each: which columns are relevant, what makes it non-
-trivial, and why it is interesting or meaningful
-
 
 ## Description 
 This dataset is available through Snowflake Marketplace under the listing name Bureau of Labor Statistics(BLS). It contains labor market and economic data across the United States. It includes unemployment statistics, employment trends, and consumer price(CPI) measurements. 
